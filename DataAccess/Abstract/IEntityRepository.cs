@@ -11,7 +11,7 @@ namespace DataAccess.Abstract
     // class: referans tip olabilir demek
     // IEntity: IEntity olabilir veya IEntity implemente eden başka bir class olabilir
     // new: sadece newlenebilir olanalrı()IEntity newlenemez çünkü interface)
-    public interface IEntityRepository<T> where T:class,IEntity,new()
+    public interface IEntityRepository<T> where T:class
     {
       
         List<T> GetAll(Expression<Func<T, bool>> filter =null); 
