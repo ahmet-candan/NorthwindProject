@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq.Expressions;
-using Entities.Abstract;
 
-namespace DataAccess.Abstract
+namespace Core.Abstract
 {
 
     // generic constraint
