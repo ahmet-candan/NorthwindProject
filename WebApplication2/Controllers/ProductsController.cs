@@ -15,13 +15,23 @@ namespace WebApplication2.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        //Loosely coupled
+        //naming convention
+        //IoC Container-- Inversion of Control (değişimin kontrolü)
+        IProductService _productService;
+
+        public ProductsController(IProductService productService)
+        {
+            _productService = productService;
+        }
 
         [HttpGet]
         public List<Product> Get()
         {
-            IProductService productService = new ProductManager(new EfProductDal());
-            var result = productService.GetAll();
-           return result.Message;
+            //Dependency chain
+           IProductService productService = new ProductManager(new EfProductDal());
+           var result = _productService.GetAll();
+           return result.Data;
             
         }
     }
