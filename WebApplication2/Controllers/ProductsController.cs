@@ -49,11 +49,32 @@ namespace WebApplication2.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("add")]
+        [HttpGet("getbycategoryid")]
+        public IActionResult GetAllByCategoryId(int id)
+        {
+            var result = _productService.GetAllByCategoryId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
+        [HttpPost("add")]
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(int id)
+        {
+            var result = _productService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);

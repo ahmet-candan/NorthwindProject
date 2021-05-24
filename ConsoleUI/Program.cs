@@ -11,7 +11,7 @@ namespace ConsoleUI
         {
 
             //DATA TRANSFORMATION OBJECT DTO
-            ProductTest();
+            //ProductTest();
             //CategoryTest();
 
 
@@ -20,17 +20,17 @@ namespace ConsoleUI
         private static void CategoryTest()
         {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-            foreach (var category in categoryManager.GetAll())
+            foreach (var category in categoryManager.GetAll().Data)
             {
                 Console.WriteLine(category.CategoryName);
             }
         }
 
-        private static void ProductTest()
+        /*private static void ProductTest()
         {
-            ProductManager productManager = new ProductManager(new EfProductDal());
+           // ProductManager productManager = new ProductManager(new EfProductDal());
 
-            var result = productManager.GetProductDetails();
+            //var result = productManager.GetProductDetails();
 
             if (result.Success == true)
             {
@@ -46,6 +46,6 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
             
-        }
+        }*/
     }
 }
