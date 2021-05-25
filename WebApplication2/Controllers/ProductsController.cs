@@ -58,6 +58,20 @@ namespace WebApplication2.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+
+            
+        }
+
+        [HttpGet("getbyunitprice")]
+        public IActionResult GetByUnitPrice(int min,int max)
+        {
+            var result = _productService.GetByUnitPrice(min,max);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
         }
 
         [HttpPost("add")]

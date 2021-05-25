@@ -55,10 +55,6 @@ namespace Business.Concrete
 
         }
 
-        public IResult Delete(Product product)
-        {
-            throw new NotImplementedException();
-        }
 
         public IDataResult<List<Product>> GetAll()
         {
@@ -84,7 +80,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.UnitPrice <= min && p.UnitPrice <= max));
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max));
         }
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
@@ -106,7 +102,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private IResult CheckIfProductNameExists(string productName) // iş kuralı parçacığı, kategoriye max 15 ürün eklenebilir 
+        private IResult CheckIfProductNameExists(string productName) 
         {
             //Select count(*) from products where productId=1 link querisini oluşturup db ye yolluyoruz
             var result = _productDal.GetAll(p => p.ProductName == productName).Any(); // any var mı yok mu kontrol eder bool değer döndürür
@@ -117,7 +113,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private IResult KategoriLimitiKolntrol()
+        private IResult KategoriLimitiKolntrol()    // iş kuralı parçacığı, kategoriye max 15 ürün eklenebilir 
         {
             var result = _categoryService.GetAll();
             if (result.Data.Count >= 15)
