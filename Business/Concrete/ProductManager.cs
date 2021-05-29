@@ -28,7 +28,7 @@ namespace Business.Concrete
             
         }
 
-        
+        //[SecuredOperation("admin,editor")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
@@ -95,7 +95,7 @@ namespace Business.Concrete
         {
             //Select count(*) from products where productId=1 link querisini oluşturup db ye yolluyoruz
             var result = _productDal.GetAll(p => p.CategoryId == categoryId).Count;
-            if (result >= 10)
+            if (result >= 15)
             {
                 return new ErrorResult(Messages.ProductCountOfCategoryError);
             }
