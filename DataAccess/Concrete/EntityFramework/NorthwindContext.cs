@@ -1,9 +1,9 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
-using NuGet.Protocol.Plugins;
 using System;
 using System.Collections.Generic;
+
 using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework

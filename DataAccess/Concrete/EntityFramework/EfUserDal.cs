@@ -4,10 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Core.Abstract;
+using System.Linq.Expressions;
+using Core.DataAccess.EntityFramework;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User, NorthwindContext>, IUserDal
+    public class EfUserDal : EfEntityReporsitoryBase<User, NorthwindContext>, IUserDal
     {
         public List<OperationClaim> GetClaims(User user)
         {
@@ -22,5 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
 
             }
         }
+
+     
     }
 }

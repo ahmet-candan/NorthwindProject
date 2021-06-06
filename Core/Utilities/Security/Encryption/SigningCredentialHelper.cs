@@ -7,7 +7,7 @@ namespace Core.Utilities.Security.Encryption
 {
     public class SigningCredentialHelper
     {
-        public static SigningCredentials GetSigningCredentials(SecurityKey securityKey)
+        public static SigningCredentials CreateSigningCredentials(SecurityKey securityKey)
         {
             return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha512Signature);
         }
