@@ -23,6 +23,7 @@ namespace Business.Abstract
         
         IResult Delete(int Id);
 
+       
 
         }
 }
