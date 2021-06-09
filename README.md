@@ -1,7 +1,7 @@
 # NorthwindProject
 
 ## Getting Started
-Çok katlı mimari örneği olan bu proje başlıca Business,DataAccess,Core,Entities ve WebAPI katmanlarından oluşmaktadır.
+Çok katlı mimari örneği olan bu proje başlıca Business,DataAccess,Core,Entities ve WebAPI olamk üzere 5 ana katmandan oluşmaktadır.
 
 ## Packages
 ### Business
