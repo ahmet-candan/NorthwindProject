@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebApplication2.Controllers
@@ -29,7 +30,7 @@ namespace WebApplication2.Controllers
         public IActionResult GetAll()
         {
             //Dependency chain
-
+            Thread.Sleep(3000);
             var result = _productService.GetAll();
             if (result.Success)
             {
